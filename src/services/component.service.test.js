@@ -1,8 +1,8 @@
 import { describe, it, jest } from "@jest/globals";
-import { ProjectService } from "./services/project.service";
-import { ComponentService } from "./services/component.service";
+import { ProjectService } from "./project.service";
+import { ComponentService } from "./component.service";
 
-describe("Fetching component issues", () => {
+describe("Component service", () => {
   const projectService = new ProjectService('test-project')
   const componentService = new ComponentService(projectService)
   
