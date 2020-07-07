@@ -1,9 +1,9 @@
 import { describe, it, jest } from "@jest/globals";
-import { ProjectService } from "./project.service";
+import { ProjectApiService } from "./project-api.service";
 import { ComponentService } from "./component.service";
 
 describe("Component service", () => {
-  const projectService = new ProjectService('test-project')
+  const projectService = new ProjectApiService('test-project')
   const componentService = new ComponentService(projectService)
   
   it("should find components with no lead only", async () => {

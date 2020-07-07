@@ -2,7 +2,7 @@ import Axios from "axios"
 
 export const DEFAULT_ISSUES_FETCH_BUCKET = 50
 
-export class ProjectService {
+export class ProjectApiService {
   #api
   #projectName
   

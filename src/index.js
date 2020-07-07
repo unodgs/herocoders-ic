@@ -1,5 +1,5 @@
 import "dotenv/config.js"
-import { ProjectService } from "./services/project.service.js"
+import { ProjectApiService } from "./services/project-api.service.js"
 import { ComponentService } from "./services/component.service.js"
 
 function printComponents(components) {
@@ -12,8 +12,8 @@ function printComponents(components) {
 
 (async function() {
   try {
-    const icProjectService = new ProjectService("IC")
-    const componentService = new ComponentService(icProjectService);
+    const icProjectApiService = new ProjectApiService("IC")
+    const componentService = new ComponentService(icProjectApiService);
 
     const componentsIssues = await componentService.getNoLeadComponentsIssues()
 
