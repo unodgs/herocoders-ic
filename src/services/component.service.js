@@ -1,10 +1,10 @@
 const LEAD_ASSIGNEE_TYPE = "COMPONENT_LEAD"
 
 export class ComponentService {
-  #projectService
+  #projectApiService
   
-  constructor(projectService) {
-    this.#projectService = projectService
+  constructor(projectApiService) {
+    this.#projectApiService = projectApiService
   }
   
   #componentHasLead = component => component.hasOwnProperty("lead") ||
@@ -21,7 +21,7 @@ export class ComponentService {
    * @returns {Promise<{ id, name, issues }>} the same list of input components with updated issue list
    */
   #setComponentsIssues = async (components) => {
-    let issues = await this.#projectService.getIssues(0)
+    let issues = await this.#projectApiService.getIssues(0)
     let issueStartIndex = issues.length
 
     while (issues.length > 0) {
@@ -36,13 +36,13 @@ export class ComponentService {
         c.issues = c.issues.concat(componentIssues)
       })
       
-      issues = await this.#projectService.getIssues(issueStartIndex)
+      issues = await this.#projectApiService.getIssues(issueStartIndex)
       issueStartIndex += issues.length
     }
   }
 
   #getNoLeadComponents = async () => {
-    const components = await this.#projectService.getComponents()
+    const components = await this.#projectApiService.getComponents()
     return components
       .filter(c => this.#componentHasLead(c) === false)
       .map(c => ({
