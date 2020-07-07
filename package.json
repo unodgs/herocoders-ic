@@ -1,0 +1,23 @@
+{
+  "name": "herocoders-ic",
+  "version": "1.0.0",
+  "description": "library test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "type": "module",
+  "author": "Daniel Kos",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@jest/globals": "^26.1.0",
+    "dotenv": "^8.2.0",
+    "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "lodash": "^4.17.15"
+  }
+}
