@@ -41,7 +41,7 @@ export class ComponentService {
     }
   }
 
-  #getNoLoadComponents = async () => {
+  #getNoLeadComponents = async () => {
     const components = await this.#projectService.getComponents()
     return components
       .filter(c => this.#componentHasLead(c) === false)
@@ -57,7 +57,7 @@ export class ComponentService {
    * @returns {Promise<Array<{id, name, issues}>>}
    */
   async getNoLeadComponentsIssues() {
-    const components = await this.#getNoLoadComponents()
+    const components = await this.#getNoLeadComponents()
     await this.#setComponentsIssues(components)
     return components
   }
